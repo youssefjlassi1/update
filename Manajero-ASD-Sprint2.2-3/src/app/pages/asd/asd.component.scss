@@ -1,0 +1,92 @@
+h1 {
+    color: #679436;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }.dashboard-container {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    color: #333;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #4CAF50;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .stats-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .stat-card {
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    color: #fff; /* White text for contrast */
+  }
+  
+  /* Assigning different colors to each stat card */
+  .stat-card:nth-child(1) {
+    background-color: #FF6F61; /* Coral */
+  }
+  
+  .stat-card:nth-child(2) {
+    background-color: #6B5B95; /* Purple */
+  }
+  
+  .stat-card:nth-child(3) {
+    background-color: #88B04B; /* Green */
+  }
+  
+  .stat-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .stat-card p {
+    font-size: 1.2em;
+  }
+  
+  .stat-card h2 {
+    font-size: 2.5em;
+  }
+  
+  .top-posts-container, .most-active-users-container {
+    margin-top: 30px;
+  }
+  
+  h2 {
+    color: #4CAF50;
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .top-posts-list li, .most-active-users-list li {
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+  }
+  
+  .top-posts-list li:hover, .most-active-users-list li:hover {
+    background-color: #e8f5e9;
+  }
+  
+  span {
+    font-size: 1.2em;
+  }
+  

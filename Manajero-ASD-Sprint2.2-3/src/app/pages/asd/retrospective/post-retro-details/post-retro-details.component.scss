@@ -1,0 +1,35 @@
+.post-image img {
+    object-fit: cover;
+  }
+  
+  .user-img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .post-title h1 {
+    font-size: 1.5rem;
+  }
+  
+  .post-details {
+    font-size: 0.9rem;
+  }
+  
+  .reaction-buttons .btn,
+  .post-actions .btn {
+    margin-right: 0.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .post-title h1 {
+      font-size: 2rem;
+    }
+    .post-details {
+      font-size: 1rem;
+    }
+  }
+  h3 {
+    color: #679436;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }

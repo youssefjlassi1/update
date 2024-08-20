@@ -1,0 +1,84 @@
+<nb-card size="medium">
+  <nb-card-header>
+    <div class="header-content">
+      <h2>Create or Select an ASD Project</h2>
+    </div>
+  </nb-card-header>
+
+  <nb-card-body>
+    <!-- Create New Project Form -->
+    <form [formGroup]="projectForm" (ngSubmit)="createProject()" class="project-form">
+      <div class="form-group">
+        <label for="name">Project Name</label>
+        <input nbInput fullWidth id="name" formControlName="name" placeholder="Enter project name" />
+        <div *ngIf="projectForm.get('name').invalid && projectForm.get('name').touched" class="validation-error">
+          Name is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="definition">Definition</label>
+        <input nbInput fullWidth id="definition" formControlName="definition" placeholder="Enter definition" />
+        <div *ngIf="projectForm.get('definition').invalid && projectForm.get('definition').touched" class="validation-error">
+          Definition is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="origin">Origin</label>
+        <input nbInput fullWidth id="origin" formControlName="origin" placeholder="Enter origin" />
+        <div *ngIf="projectForm.get('origin').invalid && projectForm.get('origin').touched" class="validation-error">
+          Origin is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="content">Content</label>
+        <textarea nbInput fullWidth id="content" formControlName="content" placeholder="Enter content"></textarea>
+        <div *ngIf="projectForm.get('content').invalid && projectForm.get('content').touched" class="validation-error">
+          Content is required.
+        </div>
+      </div>
+
+      <button nbButton status="success" type="submit" fullWidth [disabled]="projectForm.invalid">Create New ASD Project</button>
+    </form>
+
+    <hr class="divider" />
+
+    <!-- Project Selection Dropdown -->
+    <div class="project-selection">
+      <nb-select placeholder="Select Project" [(selected)]="selectedProjectId" (selectedChange)="showInterface($event)" fullWidth>
+        <nb-option *ngFor="let project of projects" [value]="project.id">{{ project.name }}</nb-option>
+      </nb-select>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<!-- Display the selected project details -->
+<nb-card *ngIf="interfaceData" class="project-details-card" size="large">
+  <nb-card-header>{{ interfaceData.name }}</nb-card-header>
+  <nb-card-body>
+    <nb-accordion>
+      <nb-accordion-item expanded>
+        <nb-accordion-item-header>Definition</nb-accordion-item-header>
+        <nb-accordion-item-body>
+          <p>{{ interfaceData.definition }}</p>
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+
+      <nb-accordion-item>
+        <nb-accordion-item-header>Origin</nb-accordion-item-header>
+        <nb-accordion-item-body>
+          <p>{{ interfaceData.origin }}</p>
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+
+      <nb-accordion-item>
+        <nb-accordion-item-header>Content</nb-accordion-item-header>
+        <nb-accordion-item-body>
+          <p>{{ interfaceData.content }}</p>
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+    </nb-accordion>
+  </nb-card-body>
+</nb-card>

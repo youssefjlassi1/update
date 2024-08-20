@@ -1,0 +1,30 @@
+<nb-card>
+    <nb-card-header>
+      Tasks for Iteration
+    </nb-card-header>
+    <nb-card-body>
+      <!-- Display a table of tasks -->
+      <nb-table>
+        <thead>
+          <tr>
+            <th>Task Name</th>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks">
+            <td>{{ task.taskName }}</td>
+            <td>{{ task.description }}</td>
+            <td>{{ task.dueDate | date:'shortDate' }}</td>
+            <td>{{ task.isCompleted ? 'Completed' : 'Pending' }}</td>
+          </tr>
+        </tbody>
+      </nb-table>
+    </nb-card-body>
+    <nb-card-footer>
+      <button nbButton (click)="close()">Close</button>
+    </nb-card-footer>
+  </nb-card>
+  

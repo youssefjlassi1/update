@@ -1,0 +1,25 @@
+<nb-card class="custom-modal">
+  <nb-card-header>Edit Interface</nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="interfaceForm" (ngSubmit)="saveChanges()">
+      
+      <div class="form-group">
+          <label for="whatifdesc">What If Descreption :</label>
+          <input nbInput type="text" id="whatifdesc" formControlName="whatifdesc" class="form-control">
+          <div *ngIf="isFieldInvalid('whatifdesc')" class="alert alert-danger">
+            <div *ngIf="interfaceForm.get('whatifdesc')?.hasError('required')">Descreption is required.</div>
+            <div *ngIf="interfaceForm.get('whatifdesc')?.hasError('minlength')">Minimum length is 20 characters.</div>
+            <div *ngIf="interfaceForm.get('whatifdesc')?.hasError('maxlength')">Maximum length is 500 characters.</div>
+          </div>
+       
+      </div>
+
+      <div class="buttons">
+        <button nbButton status="primary" type="button" (click)="close()">Cancel</button>
+        <button nbButton status="success" type="submit">Save changes</button>
+      </div>
+      
+    </form>
+  </nb-card-body>
+</nb-card>
+  

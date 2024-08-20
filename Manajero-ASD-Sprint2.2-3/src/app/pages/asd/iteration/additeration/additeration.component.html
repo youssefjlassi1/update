@@ -1,0 +1,69 @@
+<nb-card>
+  <nb-card-header>
+    Add Iteration
+  </nb-card-header>
+
+  <nb-card-body>
+    <form [formGroup]="iterationForm">
+      <div class="form-group">
+        <label for="sprintName">Iteration Name</label>
+        <input nbInput 
+               id="sprintName"
+               fullWidth 
+               placeholder="Enter Iteration name" 
+               formControlName="sprintName">
+      </div>
+
+      <div class="form-group">
+        <label for="sprintDescription">Iteration Description</label>
+        <input nbInput 
+               id="sprintDescription"
+               fullWidth 
+               placeholder="Enter Iteration Description" 
+               formControlName="sprintDescription">
+      </div>
+
+      <div class="form-group">
+        <nb-card>
+          <nb-card-header>Start Date</nb-card-header>
+          <nb-card-body>
+            <input nbInput
+                   placeholder="Select Start Date"
+                   [nbDatepicker]="startDatePicker"
+                   formControlName="startDate">
+            <nb-datepicker #startDatePicker></nb-datepicker>
+          </nb-card-body>
+        </nb-card>
+      </div>
+      
+      <div class="form-group">
+        <nb-card>
+          <nb-card-header>End Date</nb-card-header>
+          <nb-card-body>
+            <input nbInput
+                   placeholder="Select End Date"
+                   [nbDatepicker]="endDatePicker"
+                   formControlName="endDate">
+            <nb-datepicker #endDatePicker></nb-datepicker>
+          </nb-card-body>
+        </nb-card>
+      </div>
+      
+
+      <div class="form-group">
+        <label for="estimation">Iteration Estimation</label>
+        <input nbInput 
+               id="estimation"
+               fullWidth 
+               placeholder="Enter Iteration Estimation" 
+               formControlName="estimation">
+      </div>
+      
+    </form>
+  </nb-card-body>
+
+  <nb-card-footer>
+    <button nbButton status="success" (click)="createGoal()" [disabled]="iterationForm.invalid">Add Iteration</button>
+    <button nbButton status="danger" (click)="cancel()">Cancel</button>
+  </nb-card-footer>
+</nb-card>

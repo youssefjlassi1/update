@@ -1,0 +1,104 @@
+<div class="main-wrapper">
+  <section class="home-three-courses">
+    <div class="container">
+      <div class="favourite-course-sec">
+        <div class="row">
+          <div class="home-three-head section-header-title" data-aos="fade-up">
+            <div class="row align-items-center d-flex justify-content-between">
+              <div class="col-lg-6 col-sm-8">
+                <h5>Posts</h5>
+                <button nbButton status="success" (click)="openAddRetrospectiveDialog()">Add Forum </button>
+              </div>
+              <div class="col-lg-6 col-sm-4">
+               
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="search-container">
+              <div class="search-input-container">
+                <input type="text" placeholder="Search by title" [(ngModel)]="searchTerm" (keyup)="filterPosts()">
+              </div>
+              <div class="sort-select-container">
+                <select [(ngModel)]="sortBy" (change)="sortPosts()">
+                  <option value="">Sort by views</option>
+                  <option value="asc">Least Viewed</option>
+                  <option value="des">Most Viewed</option>
+                </select>
+              </div>
+            </div>
+          </div><!--
+          <div class="all-courses-main">
+            <div class="tab-content">
+              <div class="nav tablist-three" role="tablist">
+                <a class="nav-tab active me-3" data-bs-toggle="tab" href="#alltab" role="tab"></a>
+              </div>
+              <div class="tab-content">
+                <div class="tab-pane fade active show" id="alltab" role="tabpanel">
+                  <div class="all-course">
+                    <div class="row">
+                      <div class="col-12" *ngFor="let post of posts" data-aos="fade-up">
+                        <div class="card mb-4">
+                          <div class="card-header d-flex align-items-center">
+                            
+                            <div>
+                              <h5 class="mb-0">{{ post.title }}</h5>
+                              <small class="text-muted">{{ post.createdAt | date: 'MMMM d, y' }}</small>
+                            </div>
+                          </div>
+                          <div class="card-body">
+                            <p>{{ post.content }}</p>
+                            <a [routerLink]="['/pages/agile/post', post.id]">
+                              <img class="img-fluid rounded" alt="" [src]="getImageUrl(post?.imageName)" style="width: 100%">
+                            </a>
+                          </div>
+                          <div class="card-footer d-flex justify-content-between">
+                            <div class="d-flex align-items-center">
+                              
+                            </div>
+                            <div>
+                              <p class="mb-0"><i class="fa-regular fa-eye"></i> {{ post.nbViews }} Views</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+           
+          </div>
+        -->
+
+        <div class="posts-list">
+          <nb-card *ngFor="let post of posts" class="post-card" style="color: aquamarine;">
+            <div class="picture">
+              <a [routerLink]="['/pages/agile/post', post.id]">
+                <img class="img-fluid rounded" alt="" [src]="getImageUrl(post?.imageName)">
+              </a>
+            </div>
+            <nb-card-body>
+              <div class="details">
+                <h4>{{ post.title }}</h4>
+                <small class="text-muted">{{ post.createdAt | date: 'MMMM d, y' }}</small>
+              </div>
+              <div class="description">
+                {{ post.content }}
+              </div>
+            </nb-card-body>
+            <nb-card-footer>
+              <div class="d-flex justify-content-between align-items-center">
+                <p class="mb-0"><i class="fa-regular fa-eye"></i> {{ post.nbViews }} Views</p>
+              </div>
+            </nb-card-footer>
+          </nb-card>
+        </div>
+
+        
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

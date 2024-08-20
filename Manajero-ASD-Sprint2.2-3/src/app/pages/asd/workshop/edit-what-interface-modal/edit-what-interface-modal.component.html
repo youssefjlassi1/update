@@ -1,0 +1,52 @@
+<nb-card class="custom-modal">
+  <nb-card-header>Edit Interface</nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="interfaceForm" (ngSubmit)="saveChanges()">
+      
+      <div class="form-group">
+        <label for="whatdesc">what is ASD Descreption </label>
+        <input nbInput type="text" id="whatdesc" formControlName="whatdesc" class="form-control">
+        <div *ngIf="isFieldInvalid('whatdesc')" class="alert alert-danger">
+          <div *ngIf="interfaceForm.get('whatdesc')?.hasError('required')">whatdesc is required.</div>
+          <div *ngIf="interfaceForm.get('whatdesc')?.hasError('minlength')">Minimum length is 20 characters.</div>
+          <div *ngIf="interfaceForm.get('whatdesc')?.hasError('maxlength')">Maximum length is 500 characters.</div>
+        </div>
+      </div>
+      <div class="form-group">
+          <label for="specGenral">Speculation :</label>
+          <input nbInput type="text" id="specGenral" formControlName="specGenral" class="form-control">
+          <div *ngIf="isFieldInvalid('specGenral')" class="alert alert-danger">
+            <div *ngIf="interfaceForm.get('specGenral')?.hasError('required')">Speculation is required.</div>
+            <div *ngIf="interfaceForm.get('specGenral')?.hasError('minlength')">Minimum length is 20 characters.</div>
+            <div *ngIf="interfaceForm.get('specGenral')?.hasError('maxlength')">Maximum length is 500 characters.</div>
+          </div>
+        </div>
+
+      <div class="form-group">
+          <label for="collGenral">Collaboration :</label>
+          <textarea nbInput id="collGenral" formControlName="collGenral" class="form-control"></textarea>
+          <div *ngIf="isFieldInvalid('collGenral')" class="alert alert-danger">
+            <div *ngIf="interfaceForm.get('collGenral')?.hasError('required')">collaboration is required.</div>
+            <div *ngIf="interfaceForm.get('collGenral')?.hasError('minlength')">Minimum length is 20 characters.</div>
+            <div *ngIf="interfaceForm.get('collGenral')?.hasError('maxlength')">Maximum length is 500 characters.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="learnGenral">learn :</label>
+          <textarea nbInput id="learnGenral" formControlName="learnGenral" class="form-control"></textarea>
+          <div *ngIf="isFieldInvalid('learnGenral')" class="alert alert-danger">
+            <div *ngIf="interfaceForm.get('learnGenral')?.hasError('required')">learn are required.</div>
+            <div *ngIf="interfaceForm.get('learnGenral')?.hasError('minlength')">Minimum length is 20 characters.</div>
+            <div *ngIf="interfaceForm.get('learnGenral')?.hasError('maxlength')">Maximum length is 500 characters.</div>
+          </div>
+        </div>
+        
+      <div class="buttons">
+        <button nbButton status="primary" type="button" (click)="close()">Cancel</button>
+        <button nbButton status="success" type="submit">Save changes</button>
+      </div>
+      
+    </form>
+  </nb-card-body>
+</nb-card>
+  

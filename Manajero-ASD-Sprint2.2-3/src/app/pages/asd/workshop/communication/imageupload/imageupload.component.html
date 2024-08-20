@@ -1,0 +1,51 @@
+<!-- Main Wrapper -->
+<div class="main-wrapper">
+    
+    <br/>
+    <br/>
+
+    <br/>
+    <br/>
+
+    <br/>
+    <br/>
+
+
+    <section id="about" class="about">
+        <div class="container" >
+
+            <section>
+                <div class="row">
+                    <div class="col-8">
+                        <label class="btn btn-default p-0">
+                            <input type="file" accept="image/*" multiple (change)="selectFiles($event)" />
+                        </label>
+                    </div>
+
+                    <div class="col-4">
+                        <button
+                            class="btn btn-success btn-sm"
+                            [disabled]="!selectedFiles"
+                            (click)="uploadFiles()"
+                        >
+                            Upload
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <img style="width: 200px; height: 200px;" *ngFor='let preview of previews' [src]="preview" class="preview">
+                </div>
+
+                <div *ngIf="message.length" class="alert alert-secondary my-3" role="alert">
+                    <ul *ngFor="let msg of message; let i = index">
+                        <li>{{ msg }}</li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+    </section>
+
+</div>
+

@@ -1,0 +1,30 @@
+/*@import '~@nebular/theme/styles/theming';
+@import '~@nebular/theme/styles/components/dialog/dialog.component';
+
+:host ::ng-deep {
+  .custom-modal {
+    .nb-dialog-container {
+      max-width: 90%; // Adjust the maximum width of the dialog container
+    }
+
+    @media (min-width: 576px) {
+      .nb-dialog-container {
+        max-width: 70%; // Adjust for small screens like tablets
+      }
+    }
+
+    @media (min-width: 768px) {
+      .nb-dialog-container {
+        max-width: 60%; // Adjust for medium-sized screens
+      }
+    }
+
+    @media (min-width: 992px) {
+      .nb-dialog-container {
+        max-width: 50%; // Adjust for larger screens like desktops
+      }
+    }
+  }
+}*/
+
+

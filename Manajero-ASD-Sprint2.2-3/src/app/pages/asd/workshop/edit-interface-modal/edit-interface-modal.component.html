@@ -1,0 +1,12 @@
+<div [formGroup]="editForm">
+  <input formControlName="name" placeholder="Name" />
+  <div *ngIf="isFieldInvalid('name')">Name is required</div>
+
+  <input formControlName="definition" placeholder="Definition" />
+  <div *ngIf="isFieldInvalid('definition')">Definition is required</div>
+
+  <input formControlName="origin" placeholder="Origin" />
+  <div *ngIf="isFieldInvalid('origin')">Origin is required</div>
+
+  <button (click)="onSubmit()">Submit</button>
+</div>

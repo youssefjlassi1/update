@@ -1,0 +1,25 @@
+<div class="chat-container">
+  <div class="user-selection">
+    <label for="user-select">Select User:</label>
+    <select id="user-select" (change)="selectUser($event.target.value)">
+      <option *ngFor="let user of users" [value]="user.id">{{ user.name }}</option>
+    </select>
+  </div>
+
+  <div *ngIf="selectedUser" class="chat-window">
+    <h3>Chat with {{ selectedUser.name }}</h3>
+    <div class="messages">
+      <div *ngFor="let msg of messages" [ngClass]="{'sent': msg.senderId === senderId, 'received': msg.senderId !== senderId}">
+        <div class="message">
+          <span *ngIf="msg.senderId === senderId" class="message-sender">You:</span>
+          <span *ngIf="msg.senderId !== senderId" class="message-receiver">{{ selectedUser.name }}:</span>
+          <span class="message-content">{{ msg.content }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="message-input">
+      <input [(ngModel)]="newMessageText" placeholder="Type a message">
+      <button (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+</div>

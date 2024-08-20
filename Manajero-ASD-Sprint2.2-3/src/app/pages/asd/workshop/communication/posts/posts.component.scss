@@ -1,0 +1,151 @@
+.main-wrapper {
+    .home-three-courses {
+        .favourite-course-sec {
+            .section-header-title {
+                margin-bottom: 20px;
+                h2 {
+                    font-size: 2rem;
+                    font-weight: bold;
+                }
+            }
+            .search-container {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                .search-input-container {
+                    flex: 1;
+                    margin-right: 10px;
+                    input {
+                        width: 100%;
+                        padding: 10px;
+                        border-radius: 5px;
+                        border: 1px solid #ccc;
+                    }
+                }
+                .sort-select-container {
+                    select {
+                        padding: 10px;
+                        border-radius: 5px;
+                        border: 1px solid #ccc;
+                    }
+                }
+            }
+            .all-courses-main {
+                .card {
+                    border: 1px solid #ddd;
+                    border-radius: 10px;
+                    .card-header {
+                        background-color: #f8f9fa;
+                        border-bottom: 1px solid #ddd;
+                        .rounded-circle {
+                            border: 2px solid #ddd;
+                        }
+                        h5 {
+                            margin: 0;
+                            font-weight: bold;
+                        }
+                        small {
+                            color: #888;
+                        }
+                    }
+                    .card-body {
+                        padding: 20px;
+                        img {
+                            margin-top: 10px;
+                        }
+                    }
+                    .card-footer {
+                        background-color: #f8f9fa;
+                        border-top: 1px solid #ddd;
+                        button {
+                            display: flex;
+                            align-items: center;
+                            i {
+                                margin-right: 5px;
+                            }
+                        }
+                        p {
+                            margin: 0;
+                            font-size: 0.9rem;
+                            color: #888;
+                            i {
+                                margin-right: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//
+.header-section {
+    margin-bottom: 1rem;
+  }
+  
+  .search-sort-container {
+    margin-bottom: 2rem;
+  }
+  
+  .search-card {
+    padding: 0;
+    border: none;
+  }
+  
+  .search-input-container {
+    flex: 1;
+    margin-right: 1rem;
+  }
+  
+  .sort-select-container {
+    flex: 0 0 auto;
+    width: 200px;
+  }
+  
+  .posts-list {
+    .post-card {
+      margin-bottom: 1rem;
+      
+      background-color: #d7f98a;
+    }
+  
+    .picture {
+      position: relative;
+      overflow: hidden;
+      height: 200px; /* Adjust as needed */
+      background-color: #f8f9fa; /* Light background color */
+    }
+  
+    .picture img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    .picture img:hover {
+      transform: scale(1.05);
+    }
+  
+    .details {
+      padding: 1rem;
+      border-bottom: 1px solid #e9ecef;
+      
+    }
+  
+    .description {
+      padding: 1rem;
+      color: #707d6c;
+      background-color: #f8f9fa;
+    }
+  
+    nb-card-footer {
+      background-color: #f8f9fa;
+      padding: 0.75rem 1rem;
+      border-top: 1px solid #e9ecef;
+      background-color: #d7f98a;
+    }
+  }
+  

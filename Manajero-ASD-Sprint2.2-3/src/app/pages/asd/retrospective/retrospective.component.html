@@ -1,0 +1,38 @@
+<button nbButton status="success" (click)="openAddRetrospectiveDialog()">Add Retrospective</button>
+
+
+
+
+<div class="posts-list">
+
+  <nb-card *ngFor="let post of retrospectivePosts" class="post-card">
+    <div class="picture">
+      <a [routerLink]="['/pages/agile/postretro', post.id]">
+        <img class="img-fluid rounded" alt="" [src]="getImageUrl(post?.imageName)">
+      </a>
+    </div>
+    <nb-card-body>
+      <div class="details">
+        <h4>{{ post.title }}</h4>
+        <small class="text-muted">{{ post.createdAt | date: 'MMMM d, y' }}</small>
+      </div>
+      <div class="description">
+        {{ post.content }}
+      </div>
+    </nb-card-body>
+    <nb-card-footer>
+      <div class="d-flex justify-content-between align-items-center">
+        <p class="mb-0"><i class="fa-regular fa-eye"></i> {{ post.nbViews }} Views</p>
+      </div>
+    </nb-card-footer>
+  </nb-card>
+</div>
+
+
+<ng-template #noPosts>
+  <nb-card>
+    <nb-card-body>
+      <p>No Retrospective posts available.</p>
+    </nb-card-body>
+  </nb-card>
+</ng-template>

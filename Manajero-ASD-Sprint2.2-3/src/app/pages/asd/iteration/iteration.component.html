@@ -1,0 +1,36 @@
+<nb-card>
+  <nb-card-header style="color: #B7CE66;">
+    <h4 style="color: #B7CE66;"> Backlog</h4> 
+    <button nbButton status="primary" (click)="openAddIterationDialog()" class="ml-2">Add Iteration</button>
+  </nb-card-header>
+
+  <nb-card-body>
+    <nb-accordion multi>
+      <nb-accordion-item *ngFor="let iteration of iterations">
+        <nb-accordion-item-header>
+          <div class="d-flex justify-content-between align-items-center">
+            <span>{{ iteration.sprintName }}</span>
+           
+          </div>
+        </nb-accordion-item-header>
+        <nb-accordion-item-body>
+          <nb-card>
+            <nb-card-header>
+              {{ iteration.sprintName }} Tasks
+
+              <button nbButton status="success" (click)="openAddTaskModal(iteration.id)">Add Task</button>
+            </nb-card-header>
+            
+            <nb-card-body>
+              <!-- Display tasks in ng2-smart-table -->
+              <ng2-smart-table *ngIf="tasksMap[iteration.id]" [settings]="settings" [source]="tasksMap[iteration.id]" (delete)="onDelete($event)" (edit)="onEdit($event)">
+              </ng2-smart-table>
+            </nb-card-body>
+          </nb-card>
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+    </nb-accordion>
+  </nb-card-body>
+</nb-card>
+
+<!-- Unused sections commented out for clarity -->

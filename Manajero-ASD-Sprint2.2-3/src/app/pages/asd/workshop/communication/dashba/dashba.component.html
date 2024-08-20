@@ -1,0 +1,38 @@
+<div class="dashboard-container">
+  <h1>Dashboard Overview</h1>
+
+  <div class="stats-container">
+    <div class="stat-card">
+      <p>Total Posts</p>
+      <h2>{{ stats.totalPosts }}</h2>
+    </div>
+    <div class="stat-card">
+      <p>Total Comments</p>
+      <h2>{{ stats.totalComments }}</h2>
+    </div>
+    <div class="stat-card">
+      <p>Total Reactions</p>
+      <h2>{{ stats.totalReacts }}</h2>
+    </div>
+  </div>
+
+  <div class="top-posts-container">
+    <h2>Top Posts</h2>
+    <ul class="top-posts-list">
+      <li *ngFor="let post of topPosts">
+        <span>{{ post.title }}</span>
+        <span>{{ post.nbViews }} views</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="most-active-users-container">
+    <h2>Most Active Users</h2>
+    <ul class="most-active-users-list">
+      <li *ngFor="let user of mostActiveUsers">
+        <span>{{ user.name }}</span>
+        <span>{{ user.activityCount }} activities</span>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,118 @@
+<nb-card size="medium">
+  <nb-card-body>
+    <nb-stepper orientation="horizontal">
+      <!-- Documentation Step -->
+      <nb-step [label]="labelOne">
+        <ng-template #labelOne>Documentation</ng-template>
+        <h3>Documentation</h3>
+        <ngx-workshop></ngx-workshop>
+        <button nbButton disabled nbStepperPrevious>prev</button>
+        <button nbButton nbStepperNext>next</button>
+      </nb-step>
+
+      <!-- ASD Methodologie Step -->
+      <nb-step [label]="labelTwo">
+        <ng-template #labelTwo>ASD Methodologie</ng-template>
+        <h3>ASD Methodologie</h3>
+        <nb-card>
+          <nb-card-body>
+            <nb-stepper orientation="horizontal">
+              <!-- Speculation Step -->
+              <nb-step [label]="labelThree">
+                <ng-template #labelThree>First Phase</ng-template>
+                <h1>Speculation</h1>
+                <ngx-iteration></ngx-iteration>
+                <button nbButton nbStepperPrevious>prev</button>
+                <button nbButton nbStepperNext>next</button>
+              </nb-step>
+
+              <!-- Collaboration Step -->
+              <nb-step [label]="labelFour">
+                <ng-template #labelFour>Second Phase</ng-template>
+                <h1>Collaboration</h1>
+                <app-posts></app-posts>
+                <button nbButton nbStepperPrevious>prev</button>
+                <button nbButton nbStepperNext>next</button>
+              </nb-step>
+
+              <!-- Learning Step -->
+              <nb-step [label]="labelFive">
+                <ng-template #labelFive>Third Phase</ng-template>
+                <h1>Learning</h1>
+                <ngx-retrospective></ngx-retrospective>
+                <button nbButton nbStepperPrevious>prev</button>
+                <button nbButton nbStepperNext>next</button>
+              </nb-step>
+            </nb-stepper>
+          </nb-card-body>
+        </nb-card>
+        <button nbButton nbStepperPrevious>prev</button>
+        <button nbButton nbStepperNext>next</button>
+      </nb-step>
+
+      <!-- Dashboard Step -->
+      <nb-step [label]="labelSix">
+        <ng-template #labelSix>Dashboard</ng-template>
+        <h3>Dashboard</h3>
+
+        <!-- Existing Bar and Pie Charts -->
+        <nb-card>
+          <nb-card-header>Bar</nb-card-header>
+          <nb-card-body>
+            <ngx-echarts-bar></ngx-echarts-bar>
+          </nb-card-body>
+        </nb-card>
+
+        <nb-card>
+          <nb-card-header>Pie</nb-card-header>
+          <nb-card-body>
+            <ngx-echarts-pie-component></ngx-echarts-pie-component>
+          </nb-card-body>
+        </nb-card>
+
+        <!-- Integrated Custom Dashboard -->
+        <div class="dashboard-container">
+          <h1>Dashboard Overview</h1>
+
+          <div class="stats-container">
+            <div class="stat-card">
+              <p>Total Posts</p>
+              <h2>{{ stats.totalPosts }}</h2>
+            </div>
+            <div class="stat-card">
+              <p>Total Comments</p>
+              <h2>{{ stats.totalComments }}</h2>
+            </div>
+            <div class="stat-card">
+              <p>Total Reactions</p>
+              <h2>{{ stats.totalReacts }}</h2>
+            </div>
+          </div>
+
+          <div class="top-posts-container">
+            <h2>Top Posts</h2>
+            <ul class="top-posts-list">
+              <li *ngFor="let post of topPosts">
+                <span>{{ post.title }}</span>
+                <span>{{ post.nbViews }} views</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="most-active-users-container">
+            <h2>Most Active Users</h2>
+            <ul class="most-active-users-list">
+              <li *ngFor="let user of mostActiveUsers">
+                <span>{{ user.name }}</span>
+                <span>{{ user.activityCount }} activities</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <button nbButton nbStepperPrevious>prev</button>
+        <button nbButton disabled nbStepperNext>next</button>
+      </nb-step>
+    </nb-stepper>
+  </nb-card-body>
+</nb-card>

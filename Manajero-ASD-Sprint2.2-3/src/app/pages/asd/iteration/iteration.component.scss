@@ -1,0 +1,43 @@
+/* Ensure visibility and positioning if necessary */
+:host {
+    display: block;
+  }
+  
+  nb-card {
+    margin-bottom: 1rem;
+    background-color: #B7CE66;
+  }
+  
+  nb-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  nb-card-body {
+    padding: 1rem;
+  }
+  
+  .nb-accordion-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+  
+  .nb-accordion-item-body {
+    padding: 0;
+  }
+  
+  button.nbButton {
+    margin-left: 0.5rem;
+  }
+  
+  .ng2-smart-table {
+    margin-top: 1rem;
+  }
+  

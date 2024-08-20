@@ -1,0 +1,81 @@
+<div class="container my-4">
+    <div class="row">
+      <!-- Post Image -->
+      <div class="col-lg-7 mb-4 post-image">
+        <img [src]="getImageUrl(post?.imageName)" alt="Post Image" class="img-fluid rounded">
+      </div>
+  
+      <!-- Post Details -->
+      <div class="col-lg-5">
+        <div class="post-details">
+          <!-- Post Title -->
+          <div class="post-title mb-4">
+            <h1>{{ post?.title }}</h1>
+          </div>
+  
+          <!-- Post Content -->
+          <div class="post-content mb-4">
+            <p class="fst-italic">{{ post?.content }}</p>
+            <ul class="post-meta list-unstyled">
+              <li><i class="bi bi-calendar-check"></i> {{ post?.createdAt }}</li>
+              <li><i class="bi bi-eye"></i> {{ post?.nbViews }} Views</li>
+              <li><i class="bi bi-chat-right-text"></i> {{ comments?.length }} Comments</li>
+            </ul>
+          </div>
+  
+          <!-- Post Actions -->
+          <div class="post-actions mb-4">
+            <button nbButton status="danger" (click)="deletePost(post.id)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Comments Section -->
+    <nb-card class="mt-4">
+      <nb-card-header>
+        <h3>Comments</h3>
+      </nb-card-header>
+      <nb-card-body>
+        <div *ngFor="let comment of comments" class="mb-4">
+          <div class="d-flex align-items-center mb-3">
+            <!-- You can add an image if needed -->
+            <h3 class="mb-0">{{ comment.author }}</h3>
+          </div>
+          <div class="comment-content mb-3">
+            <p *ngIf="commentBeingEdited !== comment">
+                <span>{{ comment.createdAt |date }}</span>  
+            
+               
+            </p> 
+            <form *ngIf="commentBeingEdited === comment" (submit)="updateComment(comment.id, commentForm.value)">
+              <textarea rows="3" class="form-control mb-2" #commentForm [value]="comment.content"></textarea>
+              <button nbButton status="success" type="submit" class="me-2">Update</button>
+              <button nbButton status="warning" (click)="commentBeingEdited = null" type="button">Cancel</button>
+            </form>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">{{ comment?.content }} </h5> 
+            <div>
+              <button *ngIf="commentBeingEdited !== comment" nbButton status="info" (click)="editComment(comment)">Edit</button>
+              <button *ngIf="commentBeingEdited !== comment" nbButton status="danger" (click)="deleteComment(comment.id)">Delete</button>
+            </div>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  
+    <!-- Add Comment Section -->
+    <nb-card class="mt-4">
+      <nb-card-header>
+        <h3>Add Comment</h3>
+      </nb-card-header>
+      <nb-card-body>
+        <form (submit)="addComment(idUser, idPost, commentForm.value)">
+          <textarea rows="3" class="form-control mb-2" #commentForm placeholder="Add comments..." required></textarea>
+          <button nbButton status="primary" fullWidth type="submit">Send Comment</button>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  
